@@ -4,6 +4,7 @@ html {
     color: #4f4f4f;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
+    /* font-family: 'Source Code Pro', monospace; */
 }
 
 ul, li {
@@ -23,6 +24,15 @@ ul, li {
 
 .parent {
     font-weight: bold;
+}
+.parent > span {
+    display: block;
+    margin: .5rem 0 .25rem 0;
+}
+
+.parent > span:before {
+    content: '--';
+    margin-right: .25rem;
 }
 
 .child {
