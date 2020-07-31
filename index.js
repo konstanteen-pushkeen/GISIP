@@ -130,10 +130,10 @@ function createTree(arr, container, other_codes) {
         if (child_ids) {
             child_ids.forEach(child => {
                 const { id, code, name, child_ids } = child;
-                const li = createElement_LI(code, name, id, other_codes);
+                let li = createElement_LI(code, name, id, other_codes);
 
                 if (child_ids) {
-                    li.classList.add('parent');
+                    li = createElement_UL(code, name, id, other_codes);  
                     createTree(child_ids, li, other_codes);
                 }
 
