@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap');
+
+html {
+    color: #4f4f4f;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.container-main {
+    display: flex;
+}
+
+#container-parks_ind, #container-parks_tech {
+    flex-basis: 50%;
+
+    margin: 0;
+    padding: 0 2rem;
+}
+
+.parent {
+    font-weight: bold;
+}
+
+.child {
+    font-weight: normal;
+    margin-left: 1rem;
+}
+
+.code {
+    color: #2F80ED;
+}
+
+.name {
+    font-family: 'Source Code Pro', monospace;
+}
