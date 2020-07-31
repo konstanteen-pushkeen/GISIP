@@ -30,14 +30,14 @@ ul, li {
     margin-left: 1rem;
 }
 
+li.parent {
+    font-weight: bold;
+}
+
 .code {
     color: #2F80ED;
 }
 
 .code > ul, .code > li {
     color: #4f4f4f;
-}
-
-.name {
-    font-family: 'Source Code Pro', monospace;
 }

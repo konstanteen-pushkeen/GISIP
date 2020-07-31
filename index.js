@@ -125,18 +125,23 @@ function createElement_LI(code, name, id, other_codes) {
 function createTree(arr, container, other_codes) {
     arr.forEach(branch => {
         const { id, code, name, child_ids } = branch;
-        const ul = createElement_UL(code, name, id, other_codes);        
+        let ul = createElement_UL(code, name, id, other_codes);        
 
         if (child_ids) {
             child_ids.forEach(child => {
                 const { id, code, name, child_ids } = child;
                 const li = createElement_LI(code, name, id, other_codes);
 
-                if (child_ids) createTree(child_ids, li, other_codes);
+                if (child_ids) {
+                    li.classList.add('parent');
+                    createTree(child_ids, li, other_codes);
+                }
 
                 ul.append(li);
             });
-        } 
+        } else {
+            ul = createElement_LI(code, name, id, other_codes);
+        }
 
         container.append(ul);
     });
