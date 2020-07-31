@@ -34,6 +34,10 @@ ul, li {
     color: #2F80ED;
 }
 
+.code > ul, .code > li {
+    color: #4f4f4f;
+}
+
 .name {
     font-family: 'Source Code Pro', monospace;
 }

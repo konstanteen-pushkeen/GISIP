@@ -89,7 +89,7 @@ function createStructureTree(structure) {
     });
 
     findParent(arrBranches);
-    
+
     return arrBranches;
 }
 
@@ -103,7 +103,7 @@ function createElement_UL(code, name, id, other_codes) {
 
     span.classList.add('title');
     if (other_codes && other_codes.includes(code)) span.classList.add('code');
-    span.append(text);        
+    span.append(text);
 
     ul.append(span);
 
@@ -125,19 +125,19 @@ function createElement_LI(code, name, id, other_codes) {
 function createTree(arr, container, other_codes) {
     arr.forEach(branch => {
         const { id, code, name, child_ids } = branch;
-        const ul = createElement_UL(code, name, id, other_codes);
+        const ul = createElement_UL(code, name, id, other_codes);        
 
-        if (!child_ids) return;
+        if (child_ids) {
+            child_ids.forEach(child => {
+                const { id, code, name, child_ids } = child;
+                const li = createElement_LI(code, name, id, other_codes);
 
-        child_ids.forEach(child => {
-            const { id, code, name, child_ids } = child;
-            const li = createElement_LI(code, name, id, other_codes);
+                if (child_ids) createTree(child_ids, li, other_codes);
 
-            if (child_ids) createTree(child_ids, li);
+                ul.append(li);
+            });
+        } 
 
-            ul.append(li);
-        });
-        
         container.append(ul);
     });
 }
@@ -156,5 +156,5 @@ window.onload = async function () {
     const container_parks_tech = document.querySelector('#container-parks_tech');
 
     createTree([ parks_ind_ST[0] ], container_parks_ind, otherCodes_parks_ind);
-    createTree([ parks_tech_ST[0] ], container_parks_tech, otherCodes_parks_tech);
+    createTree([parks_tech_ST[0]], container_parks_tech, otherCodes_parks_tech);
 }
